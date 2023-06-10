@@ -9,7 +9,7 @@ def home():
     quantity = request.args.get('quantity')
     conn = mysql.connector.connect(user='root', host='localhost', database='autotech', port=3307)
     cursor = conn.cursor()
-    cursor.execute(f"INSERT INTO invoices (invoice_num, part_num, quantity) VALUES({invoice_num}, '{part_num}', '{quantity}');")
+    cursor.execute(f"INSERT INTO invoices (Inv_no, Qty, Item) VALUES({invoice_num}, '{part_num}', '{quantity}');")
     conn.commit()
     cursor.close()
     return "done"
