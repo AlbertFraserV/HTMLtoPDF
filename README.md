@@ -81,3 +81,12 @@ Now, your application is set up and ready to use. If you have any issues or need
 
 
 Now that you understand the functionalities of the AutoTech Catalog web application, you're all set to start using it. Enjoy the ease and convenience that this application brings to managing your parts catalog!
+
+## Project Todo
+
+Here's a list of potential enhancements. While these items are not immediately required for the current project scope, they represent potential future improvements that could extend the functionality and usability of the application:
+
+* **Setup Script:** Develop a setup script to streamline the initial configuration of the application for users.
+* **Generalize Application:** Modify the application to be more broadly applicable beyond the Moss Motors catalog. Consider incorporating a setting to accommodate different part/item number formats.
+* **UI Enhancements:** Improve the aesthetic and usability of the buttons. Consider introducing more UI customization options within the HTML file to further improve user experience.
+* **Part/Item Number to Diagram Linking:** Explore the feasibility of linking part numbers to diagrams. The current state of the Moss Motors PDFs might present some challenges with this feature, given the blurry text of the diagrams.
