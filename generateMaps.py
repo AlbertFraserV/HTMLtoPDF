@@ -128,20 +128,31 @@ for filename in os.listdir(pdf_dir):
                         position: fixed;
                         bottom: 10px;
                         right: 10px;
-                        padding: 10px;
+                        padding: 10px 20px;
                         background-color: lightgrey;
                         border: 1px solid black;
-                        cursor: move;
                     }
-
+                    .pageNumber {
+                        z-index: 1000;
+                    }
+                    #partButton {
+                        font-size: 20px; /* Adjust the font size */
+                        padding: 10px 20px; /* Adjust the padding: top/bottom and left/right */
+                        cursor: pointer;
+                    }
                 </style>
                 <script>
+                function showModal(event) {
+                    event.preventDefault();  // Prevent navigation
+                    var partNumber = event.target.id.split("_").slice(2).join("-");  // Get the part number from the id
+                    document.getElementById('part').value = partNumber;  // Set the Part # in the modal
+                    document.getElementById('modal').style.display = "block";  // Show the modal
+                    document.getElementById('quantity').value = 1;
+                }
+
                 document.querySelectorAll('area').forEach(function(area) {
                     area.addEventListener('click', function(event) {
-                        event.preventDefault();  // Prevent navigation
-                        var partNumber = event.target.id.split("_").slice(2).join("-");  // Get the part number from the id
-                        document.getElementById('part').value = partNumber;  // Set the Part # in the modal
-                        document.getElementById('modal').style.display = "block";  // Show the modal
+                        showModal(event);
                     });
                 });
 
@@ -163,59 +174,8 @@ for filename in os.listdir(pdf_dir):
                     document.getElementById('modal').style.display = "none";
                 });
 
-                // Function to adjust clickable area size
-                function adjustClickableAreaSizes() {
-                    // Get the image element
-                    const img = document.getElementById('your_image_id');
-
-                    // Get the current dimensions of the image
-                    const imgWidth = img.offsetWidth;
-                    const imgHeight = img.offsetHeight;
-
-                    // Get all clickable areas
-                    const clickableAreas = document.querySelectorAll('.clickable_area');
-
-                    // For each clickable area
-                    clickableAreas.forEach((area) => {
-                        // Get its original pixel coordinates
-                        const coords = area.dataset.coords.split(',').map(Number);
-                        const [origLeft, origTop, origWidth, origHeight] = coords;
-
-                        // Calculate the current coordinates of the clickable area as a percentage of the current image size
-                        const left = (origLeft / img.naturalWidth) * imgWidth;
-                        const top = (origTop / img.naturalHeight) * imgHeight;
-                        const width = (origWidth / img.naturalWidth) * imgWidth;
-                        const height = (origHeight / img.naturalHeight) * imgHeight;
-
-                        // Set the clickable area's CSS properties to these new coordinates
-                        area.style.left = `${left}px`;
-                        area.style.top = `${top}px`;
-                        area.style.width = `${width}px`;
-                        area.style.height = `${height}px`;
-                    });
-                }
-
-                // Call this function whenever the page loads or is resized
-                window.addEventListener('load', adjustClickableAreaSizes);
-                window.addEventListener('resize', adjustClickableAreaSizes);
-
-                // Make the jumpBox element draggable
-                dragElement(document.getElementById("jumpBox"));
-
-                function jumpToPage() {
-                    // Get the page number from the input field
-                    var pageNumber = document.getElementById("pageNumber").value;
-                    // Jump to the corresponding img element (assuming the ids are set up correctly)
-                    var pageElement = document.getElementById("page_num_" + pageNumber);
-                    if (pageElement) {
-                        pageElement.scrollIntoView();
-                    }
-                }
             """)
             f.write("""
-                // Make the jumpBox element draggable
-                dragElement(document.getElementById("jumpBox"));
-
                 function jumpToPage() {
                     // Get the page number from the input field
                     var pageNumber = document.getElementById("pageNumber").value;
@@ -230,41 +190,4 @@ for filename in os.listdir(pdf_dir):
                         pageElement.scrollIntoView();
                     }
                 }
-
-                // A function to make an element draggable
-                function dragElement(elmnt) {
-                    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-                    elmnt.onmousedown = dragMouseDown;
-
-                    function dragMouseDown(e) {
-                        e = e || window.event;
-                        // get the mouse cursor position at startup:
-                        pos3 = e.clientX;
-                        pos4 = e.clientY;
-                        document.onmouseup = closeDragElement;
-                        // call a function whenever the cursor moves:
-                        document.onmousemove = elementDrag;
-                    }
-
-                    function elementDrag(e) {
-                        e = e || window.event;
-                        // calculate the new cursor position:
-                        pos1 = pos3 - e.clientX;
-                        pos2 = pos4 - e.clientY;
-                        pos3 = e.clientX;
-                        pos4 = e.clientY;
-                        // set the element's new position:
-                        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-                        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-                    }
-
-                    function closeDragElement() {
-                        /* stop moving when mouse button is released:*/
-                        document.onmouseup = null;
-                        document.onmousemove = null;
-                    }
-                }
-
-
-                </script>
             """)
