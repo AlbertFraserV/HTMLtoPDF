@@ -1,4 +1,4 @@
-# MossMotorsInvoiceGenerator
+# Moss Motors Invoice Generator
 
 This repo is a small project which is intended to take a PDF catalogue from Moss Motors and convert it into HTML so that the part numbers can be selected and added to a MySQL database to generate invoices. 
 
