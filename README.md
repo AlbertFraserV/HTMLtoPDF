@@ -58,26 +58,26 @@ Now, your application is set up and ready to use. If you have any issues or need
 
 ## How to use
 
-**Interacting with Part Numbers**
+### Interacting with Part Numbers
 
-* Selecting a Part Number: Click on any part number in the catalog. This action opens a dialog box.
-* Auto-filled Part Number: When the dialog box opens, the part number you clicked on is automatically filled in the Part Number field. This auto-fill feature saves you time by eliminating the need to manually enter the part number.
+* **Selecting a Part Number:** Click on any part number in the catalog. This action opens a dialog box.
+* **Auto-filled Part Number:** When the dialog box opens, the part number you clicked on is automatically filled in the Part Number field. This auto-fill feature saves you time by eliminating the need to manually enter the part number.
 
-**Managing Invoices**
+### Managing Invoices
 
-* Entering an Invoice Number: The first time you use the application after a page load, you'll need to manually enter an invoice number. * After you've entered it once, the application will remember the invoice number for the rest of the session. This means you won't have to re-enter it unless you want to change it.
+* **Entering an Invoice Number:** The first time you use the application after a page load, you'll need to manually enter an invoice number. After you've entered it once, the application will remember the invoice number for the rest of the session. This means you won't have to re-enter it unless you want to change it.
 
-**Adjusting Quantity**
+### Adjusting Quantity
 
-* Changing Quantity: The quantity field in the dialog box defaults to 1. If you need more than one of a particular part, simply change the quantity in this field.
+* **Changing Quantity:** The quantity field in the dialog box defaults to 1. If you need more than one of a particular part, simply change the quantity in this field.
 
-**Manual Entry Box**
+### Manual Entry Box
 
-* Unclear Part Numbers: If a part number hasn't been parsed correctly, you can manually bring up the dialog box. To do this, click the designated box.
+* **Unclear Part Numbers:** If a part number hasn't been parsed correctly, you can manually bring up the dialog box. To do this, click the designated box.
 
-**Jump Page Button**
+### Jump Page Button
 
-* Navigating the Catalog: If you want to quickly move to a different page in the catalog, use the Jump Page button. This feature allows you to navigate the catalog according to the Table of Contents.
+* **Navigating the Catalog:** If you want to quickly move to a different page in the catalog, use the Jump Page button. This feature allows you to navigate the catalog according to the Table of Contents.
 
 
 Now that you understand the functionalities of the AutoTech Catalog web application, you're all set to start using it. Enjoy the ease and convenience that this application brings to managing your parts catalog!
